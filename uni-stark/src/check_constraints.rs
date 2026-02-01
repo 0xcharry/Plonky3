@@ -16,7 +16,7 @@ use tracing::instrument;
 /// - `main`: The [`RowMajorMatrix`] containing witness rows.
 /// - `public_values`: Public values provided to the builder.
 #[instrument(skip_all)]
-#[allow(unused)]
+#[cfg_attr(not(debug_assertions), allow(dead_code))]
 pub(crate) fn check_constraints<F, A>(air: &A, main: &RowMajorMatrix<F>, public_values: &[F])
 where
     F: Field,
